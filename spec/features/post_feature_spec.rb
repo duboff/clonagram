@@ -21,7 +21,13 @@ describe 'uploading photos' do
       expect(page).to have_content 'less than a minute'
     end
 
+    it "doesn't show the delete link when the user is not the author" do
+      visit '/posts'
+      expect(page).not_to have_css("a", :text => "Delete")
+    end
+
     it "deletes a post" do
+      login_as_test_user
       visit '/posts'
       click_link 'Delete'
       expect(page).not_to have_content 'sss'
@@ -61,4 +67,6 @@ describe "tagging" do
     click_link '#kitten'
     expect(current_path).to eq '/tags/kitten'
   end
+
+
 end

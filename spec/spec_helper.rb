@@ -77,10 +77,8 @@ end
 
 
 def login_as_test_user
-  visit '/users/sign_up'
-  fill_in 'Username', with: 'dave'
-  fill_in 'Email address', with: 'test@test.com'
+  visit '/users/sign_in'
+  fill_in 'Email', with: 'user1@example.com'
   fill_in 'Password', with: '12345678'
-  fill_in 'Password confirmation', with: '12345678'
-  click_button 'Sign up'
+  click_button 'Sign in'
 end

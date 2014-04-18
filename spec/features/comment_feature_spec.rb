@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "commenting on post" do
   let!(:post) { create(:post1) }
+
   it "begins with no comments" do
     visit '/posts'
     expect(page).to have_content '0 comments'
