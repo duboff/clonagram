@@ -14,6 +14,8 @@ class Post < ActiveRecord::Base
 
   validates_attachment_content_type :picture, content_type: ["image/jpg", "image/jpeg", "image/png"]
 
+  geocoded_by :address   # can also be an IP address
+  after_validation :geocode          # auto-fetch coordinates
 
 
   def tag_names

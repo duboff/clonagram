@@ -4,15 +4,16 @@
       <%= image_tag post.picture.url(:medium), class: "uploaded-pic", :data => { src: "holder.js/300x200" } %>
     </div>
     <div class="description-container caption">
-      <p><%= post.description %></p>
-      <p><i class="fa fa-tags"></i>
+      <p><%= post.description %>
+        <%= link_to icon('location-arrow'), post_map_path(post) %></p>
+      <p><%= icon('tags') %>
         <% post.tags.each do |tag| %>
           <%= link_to tag.name, tag %>
         <% end %>
       </p>
       <p>
         <hr>
-        <i class="fa fa-user"></i>
+        <%= icon('user') %>
         <%= post.user.username %>
         <span class="badge"><%= timestamp(post.created_at) %></span></p>
       <p>

@@ -19,4 +19,3 @@ $(document).ready ->
           commentArea.append("<li>#{comment.content}")
         commentArea.slideDown()
         link.addClass('appended clicked-once')
-        # link.addClass('clicked-once')

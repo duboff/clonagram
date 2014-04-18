@@ -36,7 +36,7 @@
       inputDelimiters : [',', ';', ' '],
 
       // this separator is used to rejoin all input items back to the value of the original <input>
-      outputDelimiter : ',',
+      outputDelimiter : ' ',
 
       allowDuplicates : false,
 
