@@ -1,31 +1,40 @@
 <div class="col-sm-6 col-md-4">
   <div class="thumbnail">
+    <p class="text-center"><small>
+        <br>
+        <strong><%= icon('user') %>
+          <%= post.user.username %></strong>
+        |
+        <%= timestamp(post.created_at) %>
+        |
+        <%= link_to icon('location-arrow') + ' ' + post.city, post_map_path(post) %>
+      </small></p>
+    <hr>
     <div class="image-container">
       <%= image_tag post.picture.url(:medium), class: "uploaded-pic img-rounded", :data => { src: "holder.js/300x200" } %>
     </div>
     <div class="description-container caption">
       <p><%= post.description %>
-        <%= link_to icon('location-arrow'), post_map_path(post) %></p>
-      <p><%= icon('tags') %>
-        <% post.tags.each do |tag| %>
-          <%= link_to tag.name, tag %>
-        <% end %>
       </p>
-      <p>
-        <hr>
-        <%= icon('user') %>
-        <%= post.user.username %>
-        <span class="label label-primary"><%= timestamp(post.created_at) %></span></p>
-      <p>
-        <span class="label label-success"><%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link' %></span>
-      </p>
+      <% if post.tags.any? %>
+        <p><%= icon('tags') %>
+          <% post.tags.each do |tag| %>
+            <%= link_to tag.name, tag %>
+          <% end %>
+        </p>
+      <% else %>
+        <p><%= icon('tags') %>
+          No tags added</p>
+      <% end %>
+      <%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link' %>
       <ul class='comments'>
       </ul>
       <hr>
       <p>
         <%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>
         <%= link_to 'Buy', new_post_charge_path(post), class: 'btn btn-success' %>
-        <%= link_to "Delete", post_path(post), method: :delete, class: 'btn btn-danger' if post.user== current_user %></p>
+        <%= link_to "Delete", post_path(post), method: :delete, class: 'btn btn-danger' if post.user== current_user %>
+      </p>
     </div>
   </div>
 </div>
