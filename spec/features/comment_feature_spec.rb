@@ -11,7 +11,7 @@ describe "commenting on post" do
     visit '/posts'
     click_link 'Add a comment'
     fill_in 'Add a comment', with: 'Super comment'
-    click_button 'Create comment'
+    click_button 'Add comment'
     expect(page).to have_content '1 comment'
     expect(page).not_to have_content '1 comments'
   end
