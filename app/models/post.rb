@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   has_and_belongs_to_many :tags
   has_many :comments
 
-  has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>" },
+  has_attached_file :picture, styles: { large: "500x500>", medium: "300x300>", thumb: "100x100>" },
     storage: :s3,
     bucket: 'gangstagram-images',
   s3_credentials: {

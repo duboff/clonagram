@@ -6,6 +6,15 @@
     <script src='http://maps.google.com/maps/api/js?sensor=true'></script>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
+    <script>
+      // Load this when the DOM is ready
+      $(function(){
+        // You used .myCarousel here.
+        // That's the class selector not the id selector,
+        // which is #myCarousel
+        $('#carousel').carousel();
+      });
+    </script>
   </head>
   <body>
     <%= render 'layouts/navigation' %>

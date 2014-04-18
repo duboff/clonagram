@@ -1,7 +1,7 @@
 <div class="col-sm-6 col-md-4">
   <div class="thumbnail">
     <div class="image-container">
-      <%= image_tag post.picture.url(:medium), class: "uploaded-pic", :data => { src: "holder.js/300x200" } %>
+      <%= image_tag post.picture.url(:medium), class: "uploaded-pic img-rounded", :data => { src: "holder.js/300x200" } %>
     </div>
     <div class="description-container caption">
       <p><%= post.description %>
@@ -15,9 +15,9 @@
         <hr>
         <%= icon('user') %>
         <%= post.user.username %>
-        <span class="badge"><%= timestamp(post.created_at) %></span></p>
+        <span class="label label-primary"><%= timestamp(post.created_at) %></span></p>
       <p>
-        <%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link badge' %>
+        <span class="label label-success"><%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link' %></span>
       </p>
       <ul class='comments'>
       </ul>
@@ -25,7 +25,7 @@
       <p>
         <%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>
         <%= link_to 'Buy', new_post_charge_path(post), class: 'btn btn-success' %>
-        <%= link_to "Delete", post_path(post), method: :delete, class: 'btn btn-danger' %></p>
+        <%= link_to "Delete", post_path(post), method: :delete, class: 'btn btn-danger' if post.user== current_user %></p>
     </div>
   </div>
 </div>
