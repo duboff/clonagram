@@ -9,8 +9,11 @@
   </head>
   <body>
     <%= render 'layouts/navigation' %>
-    <p class="notice alert alert-info"><%= notice %></p>
-    <p class="alert alert alert-danger"><%= alert %></p>
+    <% if notice %>
+      <p class="notice alert alert-info"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert alert alert-danger"><%= alert %></p>
+    <% end %>
     <div class='container'>
       <%= yield %>
     </div>

@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find params[:post_id]
-    @post.comments.new params[:comment].permit(:content)
+    @comment = @post.comments.new params[:comment].permit(:content)
+    @comment.user = current_user
 
     if @post.save
       flash[:notice] = 'Thanks for your comment'

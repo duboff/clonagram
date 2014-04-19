@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "commenting on post" do
   let!(:post) { create(:post1) }
+  let!(:user) { create(:user2) }
 
   it "begins with no comments" do
     visit '/posts'
@@ -23,6 +24,11 @@ describe "commenting on post" do
     click_link '1 comment'
     expect(page).to have_content 'Awesome!'
   end
-
+  it 'displays username in comments', js: true do
+    create(:comment, post: post, user: user)
+    visit '/posts'
+    click_link '1 comment'
+    expect(page).to have_css '.comment-author', text: 'user2'
+  end
 
 end
