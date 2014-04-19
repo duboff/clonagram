@@ -16,6 +16,6 @@ $(document).ready ->
         link.addClass('clicked-once')
       else
         post.comments.forEach (comment) ->
-          commentArea.append("<#{comment.user.username}: #{comment.content}")
+          commentArea.append("<dt><small><strong><i class='fa fa-user'></i> #{comment.author}</strong></small></dt><dd> #{comment.content}</dd>")
         commentArea.slideDown()
         link.addClass('appended clicked-once')

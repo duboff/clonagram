@@ -7,5 +7,6 @@ json.longitude @post.longitude
 json.author @post.user.username
 json.url post_url(@post)
 json.comments @post.comments do |comment|
+  json.author comment.user.username
   json.content comment.content
 end

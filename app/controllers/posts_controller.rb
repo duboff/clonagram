@@ -26,6 +26,16 @@ class PostsController < ApplicationController
     redirect_to '/posts'
   end
 
+  def edit
+    @post = Post.find params[:id]
+  end
+
+  def update
+    @post = Post.find params[:id]
+    @post.update params[:post].permit(:description, :picture, :tag_names, :address)
+    redirect_to '/posts'
+  end
+
   def show
     @post = Post.find params[:id]
     respond_to do |format|

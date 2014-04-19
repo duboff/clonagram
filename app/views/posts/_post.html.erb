@@ -27,8 +27,8 @@
           No tags added</p>
       <% end %>
       <%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link' %>
-      <ul class='comments'>
-      </ul>
+      <dl class='comments'>
+      </dl>
       <hr>
       <p>
         <%= link_to 'Add a comment', new_post_comment_path(post), class: 'btn btn-primary' %>
