@@ -11,7 +11,9 @@
       </small></p>
     <hr>
     <div class="image-container">
-      <%= image_tag post.picture.url(:medium), class: "uploaded-pic img-rounded", :data => { src: "holder.js/300x200" } %>
+      <div class="row text-center">
+        <%= image_tag post.picture.url(:medium), class: "uploaded-pic img-rounded", :data => { src: "holder.js/300x200" } %>
+      </div>
     </div>
     <div class="description-container caption">
       <p><%= post.description %>
