@@ -19,7 +19,7 @@ describe "commenting on post" do
   end
 
   it 'displays comments', js: true do
-    create(:comment, post: post)
+    create(:comment, post: post, user: user)
     visit '/posts'
     click_link '1 comment'
     expect(page).to have_content 'Awesome!'
