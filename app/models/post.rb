@@ -3,6 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :tags
   has_many :comments
+  has_many :votes
 
   has_attached_file :picture, styles: { large: "500x500>", medium: "300x300>", thumb: "100x100>" },
     storage: :s3,
@@ -33,6 +34,10 @@ class Post < ActiveRecord::Base
       tag = Tag.find_or_create_by(name: tag_name.downcase)
       tags << tag
     end
+  end
+
+  def vote_count
+    votes.up.count - votes.down.count
   end
 
 end

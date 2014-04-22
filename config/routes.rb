@@ -12,6 +12,7 @@ InstagramClone::Application.routes.draw do
     resources :comments
     resources :charges
     resource :map
+    resource :votes
   end
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

@@ -7,12 +7,12 @@ describe 'Voting on a post' do
     visit '/posts'
   end
 
-  it 'can upvote a post' do
+  it 'upvotes a post' do
     click_button '▲'
     expect(page).to have_css '.vote_count', text: '1'
   end
 
-  it 'can downvote a post' do
+  it 'downvotes a post' do
     click_button '▼'
     expect(page).to have_css '.vote_count', text: '-1'
   end
