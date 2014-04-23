@@ -19,6 +19,9 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Warden::Test::Helpers
+  Warden.test_mode!
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
