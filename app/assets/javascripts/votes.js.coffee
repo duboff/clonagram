@@ -4,7 +4,7 @@
 $(document).ready ->
   $('.vote_button').on 'click', (event) ->
     event.preventDefault()
-    url = $(this).closest('form').attr('action')
+    url = $(this).attr("href");
     voteCount = $(this).closest('.votes').find('.vote_count')
 
     $.post url, (post) ->
