@@ -2,20 +2,36 @@ require 'spec_helper'
 
 describe 'Voting on a post' do
 
-  before do
-    create(:post1)
+  # let!(:user) { create(:user1) }
+  before { create(:post1) }
+
+  describe 'upvoting' do
+    before do
+      clear_emails
+      # login_as create(:user2)
+    end
+
+    it 'score increases when post is upvoted', js: true do
+      visit '/posts'
+      page.find('.upvote').click
+      expect(page).to have_css '.vote_count', text: '1'
+    end
+    it 'sends email when a post is upvoted', js: true do
+      visit '/posts'
+      page.find('.upvote').click
+    end
+  end
+
+
+
+  it 'downvotes a post', js: true do
     visit '/posts'
-  end
-
-  it 'upvotes a post' do
-    click_button '▲'
-    expect(page).to have_css '.vote_count', text: '1'
-  end
-
-  it 'downvotes a post' do
-    click_button '▼'
+    page.find('.downvote').click
+    # click_link icon('thumbs-o-down')
     expect(page).to have_css '.vote_count', text: '-1'
   end
+
+
 
 
 end

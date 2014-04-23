@@ -32,8 +32,8 @@
         <i class="fa fa-heart"></i>
         <span class="vote_count">
           <%= post.vote_count %></span>
-        <%= link_to icon('thumbs-o-up'), post_votes_path(post, direction: :up), class: 'vote_button' %>
-        <%= link_to icon('thumbs-o-down'), post_votes_path(post, direction: :down), class: 'vote_button ' %>
+        <%= link_to icon('thumbs-up'), post_votes_path(post, direction: :up), class: 'vote_button upvote' %>
+        <%= link_to icon('thumbs-down'), post_votes_path(post, direction: :down), class: 'vote_button downvote' %>
         |
         <%= link_to_if post.comments.any?, pluralize(post.comments.count, 'comment'), '#', data: { 'post-url' => post_path(post, format: :json) }, class: 'comment-link' %></div>
       <dl class='comments'>

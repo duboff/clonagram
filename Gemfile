@@ -27,6 +27,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'capybara-email'
+  gem 'mailcatcher'
 end
 
 
