@@ -77,10 +77,12 @@ ActiveRecord::Schema.define(version: 20140422225705) do
   create_table "votes", force: true do |t|
     t.integer  "post_id"
     t.integer  "direction"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "votes", ["post_id"], name: "index_votes_on_post_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
 
 end
