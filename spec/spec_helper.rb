@@ -13,6 +13,11 @@ require 'database_cleaner'
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 Capybara.javascript_driver = :poltergeist
 
+Capybara.server do |app, port|
+  require 'rack/handler/thin'
+  Rack::Handler::Thin.run(app, :Port => port)
+end
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -39,6 +44,7 @@ RSpec.configure do |config|
   end
 
   config.after(:each) do
+    Capybara.reset_sessions!
     DatabaseCleaner.clean
   end
   # ## Mock Framework

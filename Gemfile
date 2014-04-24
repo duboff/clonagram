@@ -13,7 +13,6 @@ gem 'font-awesome-sass'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'geocoder'
 gem 'thin'
-gem 'mandrill-api'
 
 
 group :production do

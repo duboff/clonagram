@@ -1,0 +1,9 @@
+<% if @vote.up? %>
+  <p>Your photo just got upvoted :
+    <%= @post.description %>! Congrats!
+  </p>
+<% else %>
+  <p>Your photo just got downvoted :
+    <%= @post.description %>! Too bad!
+  </p>
+<% end %>

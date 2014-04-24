@@ -3,13 +3,13 @@ require 'spec_helper'
 describe 'Voting on a post' do
 
   # let!(:user) { create(:user1) }
-  before { create(:post1) }
+  before do
+    create(:post1)
+    login_as create(:user2)
+  end
+
 
   describe 'upvoting' do
-    before do
-      clear_emails
-      login_as create(:user2)
-    end
 
     it 'score increases when post is upvoted', js: true do
       visit '/posts'
@@ -19,11 +19,12 @@ describe 'Voting on a post' do
     it 'sends email when a post is upvoted', js: true do
       visit '/posts'
       page.find('.upvote').click
-      open_emai('user1@example.com')
+      open_email('user1@example.com')
       expect(current_email).to have_content 'Your photo just got upvoted'
     end
   end
-  describe 'upvoting' do
+
+  describe 'downvoting' do
 
     it 'downvotes a post', js: true do
       visit '/posts'
@@ -33,7 +34,7 @@ describe 'Voting on a post' do
     it 'sends email when a post is upvoted', js: true do
       visit '/posts'
       page.find('.downvote').click
-      open_emai('user1@example.com')
+      open_email('user1@example.com')
       expect(current_email).to have_content 'Your photo just got downvoted'
     end
   end
