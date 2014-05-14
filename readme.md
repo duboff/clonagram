@@ -34,7 +34,7 @@ Or use online on Heroku [here](http://clonagram.herokuapp.com/).
 
 ## Screenshot
 
-![Screenshot](/bookmark-manager.png "Sudoku Web Version")
+![Screenshot](/clonagram.png "Clonagram")
 
 
 
