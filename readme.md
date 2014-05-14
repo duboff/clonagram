@@ -1,4 +1,5 @@
-### Clonagram
+Clonagram
+==========
 [![Code Climate](https://codeclimate.com/github/duboff/clonagram.png)](https://codeclimate.com/github/duboff/clonagram)
 
 ## Week 9 Project @ Makers Academy
