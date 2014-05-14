@@ -14,6 +14,7 @@ gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'geocoder'
 gem 'thin'
 gem 'websocket-rails'
+gem 'angularjs-rails'
 
 
 group :production do

@@ -15,6 +15,7 @@
 //= require jquery.ui.all
 //= require bootstrap
 //= require inputosaurus
+//= require angular
 //= require gmaps
 //= require_tree .
 //= require websocket_rails/main
