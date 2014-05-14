@@ -4,7 +4,7 @@ Clonagram
 
 ## Week 9 Project @ Makers Academy
 
-The goal of this project was to build fully functional Rails app mimicking the functionality of Instagram (though without the fancy filters). Users can upload pictures, add comments and vote on each other's pictures. There is a buy print functionality working in a test mode. Images are stored on the cloud. Voting works in real-time a-la Reddit using Websockets and comments use AJAX.
+The goal of this project was to build fully functional Rails app mimicking the functionality of Instagram (though without the fancy filters). Users can upload pictures, add comments and vote on each other's pictures. There is a buy print functionality working in a test mode. Images are stored on the cloud. Voting works in real-time a-la Reddit using Websockets and comments use AJAX. There is two-way geocoding: address -> coordinates -> map and coordinates -> address.
 
 The app is built using "eat-your-own-dogfood" philosophy where the app itself consumes JSON it generated the same way someone else would use it for an API. There is thus a fully functional take-out API for images.
 
