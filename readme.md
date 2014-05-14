@@ -15,6 +15,7 @@ As with my other apps, the app was built in a TDD way from the start except for 
 * PostgreSQL
 * Rspec & Capybara
 * ERB, SASS, HTML & CSS
+* Bootstrap
 * Javascript & Coffeescript
 * jQuery & AJAX
 * Heroku deployment ([link](http://clonagram.herokuapp.com/))
