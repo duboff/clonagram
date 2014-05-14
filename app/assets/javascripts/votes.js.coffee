@@ -4,8 +4,12 @@
 $(document).ready ->
   $('.vote_button').on 'click', (event) ->
     event.preventDefault()
-    url = $(this).attr("href");
-    voteCount = $(this).closest('.votes').find('.vote_count')
+    url = $(this).closest('a').attr('href')
+    $.post url
 
-    $.post url, (post) ->
-      voteCount.html post.vote_count
+  dispatcher = new WebSocketRails(window.location.host + '/websocket')
+
+  channel = dispatcher.subscribe 'votes'
+
+  channel.bind 'new', (post) ->
+    $(".vote_count[data-id=#{post.id}]").html(post.new_vote_count)

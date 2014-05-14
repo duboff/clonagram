@@ -17,3 +17,4 @@
 //= require inputosaurus
 //= require gmaps
 //= require_tree .
+//= require websocket_rails/main
