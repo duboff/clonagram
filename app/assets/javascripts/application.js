@@ -13,8 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require_tree .
 //= require bootstrap
 //= require inputosaurus
 //= require gmaps
-
+//= require_tree .
