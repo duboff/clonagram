@@ -10,6 +10,8 @@ The app is built using "eat-your-own-dogfood" philosophy where the app itself co
 
 As with my other apps, the app was built in a TDD way from the start except for some front-end features.
 
+The project was 
+
 ## Stack
 * Ruby
 * Rails
@@ -32,7 +34,7 @@ From the console (after switching to the right folder):
 $ rails s
 ```
 
-Or use online on Heroku [here](http://clonagram.herokuapp.com/).
+Or use online on Heroku [here](http://clonagram.herokuapp.com/). Please note Websockets are not fully supported on Heroku and thus voting doesn't work properly. It works on the local server.
 
 ## Screenshot
 
